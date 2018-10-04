@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Developer Profiler</string>
+    <string name="splashscreen_title">Developer Profile</string>
+    <string name="splashscreen_message">View github profiles the other way around</string>
 </resources>

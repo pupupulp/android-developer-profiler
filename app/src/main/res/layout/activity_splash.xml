@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity"
     android:orientation="vertical"
+    android:background="@drawable/splashbackground"
     android:id="@+id/splashscreen">
 
     <LinearLayout
@@ -16,10 +17,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get Started"
             android:layout_gravity="center"
             android:layout_marginTop="150dp"
-            android:textSize="60sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/splashscreen_title"
+            android:textAlignment="center"
+            android:textSize="50sp"
             android:textStyle="bold"
             android:textColor="@color/colorGreyWhite"/>
 
@@ -27,11 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="HAHAHAHAHAHA"
-            android:textAlignment="center"
-            android:textSize="30sp"
             android:layout_marginTop="50dp"
-            android:textColor="@color/colorGreyWhite"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/splashscreen_message"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorDirtyWhite"/>
 
     </LinearLayout>
 
