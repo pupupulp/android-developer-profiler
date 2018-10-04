@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.splashbackground);
+        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.splash_background);
         Bitmap blurredBitmap = ImageHandler.blur(this, originalBitmap);
 
         LinearLayout splashscreenView = (LinearLayout) findViewById(R.id.splashscreen);
