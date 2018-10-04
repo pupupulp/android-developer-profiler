@@ -51,8 +51,11 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/bordered_white_fill"
             android:inputType="text"
-            android:background="@drawable/bordered_white_fill"/>
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:hint="Enter a Github user"/>
 
         <Button
             android:layout_width="wrap_content"
