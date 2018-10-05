@@ -7,11 +7,12 @@
     tools:context=".SplashActivity"
     android:orientation="vertical"
     android:background="@drawable/splash_background"
-    android:id="@+id/splashscreen">
+    android:id="@+id/splashScreen">
 
     <LinearLayout
+        android:id="@+id/splashHeader"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="320dp"
         android:orientation="vertical">
 
         <TextView
@@ -42,12 +43,14 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/splashBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/githubUser"
+            android:id="@+id/githubUserField"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,9 +58,11 @@
             android:inputType="text"
             android:singleLine="true"
             android:textAlignment="center"
+            android:textColor="@color/colorBlack"
             android:hint="Enter a Github user"/>
 
         <Button
+            android:id="@+id/viewProfileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
