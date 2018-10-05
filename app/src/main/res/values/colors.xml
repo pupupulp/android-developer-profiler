@@ -13,4 +13,7 @@
     <color name="colorGrey">#4E5A5E</color>
     <color name="colorBlue">#2384AD</color>
     <color name="colorLightBlue">#27A5DB</color>
+    <color name="colorRed">#AD1C23</color>
+    <color name="colorGreen">#068F00</color>
+    <color name="colorGreen">#FC5400</color>
 </resources>
