@@ -2,9 +2,12 @@ package com.fujiyama.pulp.developerprofiler;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -17,6 +20,7 @@ public class SplashActivity extends AppCompatActivity {
     EditText githubUserField;
     Button viewProfileButton;
 
+    Animation uptodown, downtoup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +38,11 @@ public class SplashActivity extends AppCompatActivity {
 
         githubUserField = (EditText) findViewById(R.id.githubUserField);
         viewProfileButton = (Button) findViewById(R.id.viewProfileButton);
+
+        uptodown = AnimationUtils.loadAnimation(this, R.anim.uptodown);
+        downtoup = AnimationUtils.loadAnimation(this, R.anim.downtoup);
+
+        splashHeader.setAnimation(uptodown);
+        splashBody.setAnimation(downtoup);
     }
 }
