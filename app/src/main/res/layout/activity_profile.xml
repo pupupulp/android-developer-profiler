@@ -42,6 +42,7 @@
                     android:textAlignment="center"/>
 
                 <TextView
+                    android:id="@+id/profileBio"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
