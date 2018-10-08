@@ -1,9 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:background="@color/colorSmokeWhite"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- Profile Details -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="475dp">
+
+            <!-- Image, Name and Quote Header -->
+            <LinearLayout
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="375dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_marginTop="45dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textSize="21sp"
+                    android:text="github_user"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="github_bio"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textStyle="italic"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <!-- Developer Cards Header -->
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="325dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!-- Card 1 -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Repositories"
+                            android:textSize="18sp"
+                            android:textAlignment="center"/>
+                        <TextView
+                            android:id="@+id/profileRepos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:paddingTop="10dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"/>
+                    </LinearLayout>
+
+                    <!-- Card 2 -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gists"
+                            android:textSize="18sp"
+                            android:textAlignment="center"/>
+                        <TextView
+                            android:id="@+id/profileGists"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:paddingTop="10dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"/>
+                    </LinearLayout>
+
+                    <!-- Card 3 -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Followers"
+                            android:textSize="18sp"
+                            android:textAlignment="center"/>
+                        <TextView
+                            android:id="@+id/profileFollowers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:paddingTop="10dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <!-- Contact Details -->
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="80dp">-->
+
+            <!--&lt;!&ndash; Email &ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="25dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="36dp"-->
+                    <!--android:layout_height="36dp"-->
+                    <!--android:src="@drawable/email"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtEmail"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="20dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:autoLink="email"-->
+                    <!--android:text="@string/email"/>-->
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash; Phone &ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="25dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="36dp"-->
+                    <!--android:layout_height="36dp"-->
+                    <!--android:src="@drawable/phone"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtPhone"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="20dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:autoLink="phone"-->
+                    <!--android:text="@string/phone"/>-->
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash; Work &ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="25dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="36dp"-->
+                    <!--android:layout_height="36dp"-->
+                    <!--android:src="@drawable/code"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtRepo"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="20dp"-->
+                    <!--android:autoLink="web"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:text="@string/repository"/>-->
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash; Social &ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="25dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="36dp"-->
+                    <!--android:layout_height="36dp"-->
+                    <!--android:src="@drawable/camera"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtSocial"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="20dp"-->
+                    <!--android:autoLink="web"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:text="@string/social"/>-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</ScrollView>

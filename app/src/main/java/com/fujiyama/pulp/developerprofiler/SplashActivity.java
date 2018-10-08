@@ -74,7 +74,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 public void onResponse(Call<User> call, Response<User> response) {
                     Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
 
-
                     Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                     User user = response.body();
                     Bundle userData = new Bundle();
