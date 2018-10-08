@@ -7,6 +7,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,7 +16,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.fujiyama.pulp.developerprofiler.model.User;
+import com.fujiyama.pulp.developerprofiler.rest.APIClient;
+import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
 import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,6 +66,21 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         if(githubUserField.getText().toString().equals("")) {
             Toast.makeText(SplashActivity.this, "Please input a user", Toast.LENGTH_SHORT).show();
         } else {
+            UserService userService = APIClient.createService(UserService.class);
+            Call<User> call = userService.getUser(githubUserField.getText().toString());
+
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    Toast.makeText(SplashActivity.this, response.toString(), Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Toast.makeText(SplashActivity.this, "Failed to get user.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
             startActivity(intent);
         }
     }
