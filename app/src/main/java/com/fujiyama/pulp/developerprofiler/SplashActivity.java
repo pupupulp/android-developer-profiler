@@ -27,6 +27,8 @@ import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = SplashActivity.class.getSimpleName();
+
     LinearLayout splashScreen, splashHeader, splashBody;
     EditText githubUserField;
     Button viewProfileButton;
@@ -61,8 +63,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-
         if(githubUserField.getText().toString().equals("")) {
             Toast.makeText(SplashActivity.this, "Please input a user", Toast.LENGTH_SHORT).show();
         } else {
@@ -72,7 +72,17 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
-                    Toast.makeText(SplashActivity.this, response.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
+
+
+                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    User user = response.body();
+                    Bundle userData = new Bundle();
+
+                    userData.putSerializable("user", user);
+                    intent.putExtras(userData);
+
+                    startActivity(intent);
                 }
 
                 @Override
@@ -80,8 +90,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(SplashActivity.this, "Failed to get user.", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            startActivity(intent);
         }
     }
 }
