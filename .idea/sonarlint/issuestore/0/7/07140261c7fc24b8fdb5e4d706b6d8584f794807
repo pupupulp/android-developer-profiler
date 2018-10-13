@@ -1,0 +1,4 @@
+
+]squid:S1858"F"getAvatarUrl" returns a string, there's no need to call "toString()".(·‚Ì²
+€squid:UselessImportCheck	"WRemove this unused import 'com.fujiyama.pulp.developerprofiler.utilities.ImageHandler'.(¥´‡—ýÿÿÿÿ
+Vsquid:UselessImportCheck"-Remove this unused import 'org.w3c.dom.Text'.(¶Äè‹þÿÿÿÿ
