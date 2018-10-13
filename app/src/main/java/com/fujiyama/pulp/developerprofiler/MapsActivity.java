@@ -1,18 +1,31 @@
 package com.fujiyama.pulp.developerprofiler;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.fujiyama.pulp.developerprofiler.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
+    private String userLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +35,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Bundle userData = getIntent().getExtras();
+        User user = (User) userData.getSerializable("user");
+
+        this.userLocation = user.getLocation();
     }
 
 
@@ -36,11 +54,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
+        try {
+            boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.mapstyle));
+
+            if(!success) {
+                Log.w(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: " + e);
+        }
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng location = getLatLongFromLocation(this, userLocation);
+        mMap.addMarker(new MarkerOptions().position(location).title("Marker in " + userLocation));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(location)      // Sets the center of the map to location user
+                .zoom(17)                   // Sets the zoom
+                .bearing(90)                // Sets the orientation of the camera to east
+                .tilt(40)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }
+
+    public LatLng getLatLongFromLocation(Context context, String location) {
+        Geocoder geocoder = new Geocoder(context);
+        List<Address> address;
+        LatLng locationPoint = null;
+
+        try {
+            address = geocoder.getFromLocationName(location, 5);
+
+            if(address == null) {
+                return null;
+            }
+
+            Address targetAddress = address.get(0);
+
+            locationPoint = new LatLng(targetAddress.getLatitude(), targetAddress.getLongitude());
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to get lat long values. Error: " + e);
+        }
+
+        return locationPoint;
     }
 }
