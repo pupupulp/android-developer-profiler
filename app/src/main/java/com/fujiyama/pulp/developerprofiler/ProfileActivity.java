@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         Bundle userData = getIntent().getExtras();
         User user = (User) userData.getSerializable("user");
 
-        ImageView profileImage = (ImageView) findViewById(R.id.profileImage);
+        ImageView profileImage = (ImageView) findViewById(R.id.profilePicture);
         Picasso.get()
                 .load(user.getAvatarUrl().toString())
                 .transform(new ImageTransform())
@@ -34,14 +34,14 @@ public class ProfileActivity extends AppCompatActivity {
         TextView profileBio = (TextView) findViewById(R.id.profileBio);
         profileBio.setText(user.getBio());
 
-        TextView profileRepos = (TextView) findViewById(R.id.profileRepos);
-        profileRepos.setText(user.getPublicRepos().toString());
-
-        TextView profileGists = (TextView) findViewById(R.id.profileGists);
-        profileGists.setText(user.getPublicGists().toString());
-
-        TextView profileFollowers = (TextView) findViewById(R.id.profileFollowers);
-        profileFollowers.setText(user.getFollowers().toString());
+//        TextView profileRepos = (TextView) findViewById(R.id.profileRepos);
+//        profileRepos.setText(user.getPublicRepos().toString());
+//
+//        TextView profileGists = (TextView) findViewById(R.id.profileGists);
+//        profileGists.setText(user.getPublicGists().toString());
+//
+//        TextView profileFollowers = (TextView) findViewById(R.id.profileFollowers);
+//        profileFollowers.setText(user.getFollowers().toString());
 
     }
 }
