@@ -9,7 +9,7 @@
     <color name="colorText">#C5C7C2</color>
     <color name="colorInactive">#4E5A5E</color>
 
-    <color name="colorPrimaryButton">#F2F2F0</color>
+    <color name="colorPrimaryFill">#F2F2F0</color>
 
 
     <color name="colorBlack">#0D0D0D</color>
