@@ -51,6 +51,9 @@ public class ProfileActivity extends AppCompatActivity {
         TextView profileName = (TextView) findViewById(R.id.profileName);
         profileName.setText(user.getFullName());
 
+        TextView profileUser = (TextView) findViewById(R.id.profileUser);
+        profileUser.setText(user.getUsername());
+
         TextView profileFollowers = (TextView) findViewById(R.id.profileFollowers);
         profileFollowers.setText(user.getFollowers().toString());
 
