@@ -10,42 +10,116 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/profileBar"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:gravity="center"
-            android:elevation="0dp">
+            android:elevation="0dp"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/profilePicture"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
-                android:src="@drawable/default_profile"/>
+                android:src="@drawable/default_profile" />
 
             <TextView
                 android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:hint="Github User"
+                android:textColorHint="@color/colorGrey"
                 android:textColor="@color/colorWhite"
-                android:textSize="16sp"
-                android:text="profile_name"/>
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Followers"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/profileFollowers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textSize="12sp"
+                    android:hint="0"
+                    android:textColorHint="@color/colorGrey"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="|"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Following"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/profileFollowing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorGreyWhite"
+                    android:textSize="12sp"
+                    android:hint="0"
+                    android:textColorHint="@color/colorGrey"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/profileBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:hint="unknown bio"
+                android:textColorHint="@color/colorGrey"
+                android:textColor="@color/colorGreyWhite"
+                android:textSize="14sp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/profileLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:hint="unknown location"
+                android:textColorHint="@color/colorGrey"
                 android:textColor="@color/colorGreyWhite"
                 android:textSize="12sp"
-                android:text="profile_bio"/>
+                android:drawableLeft="@drawable/location_icon"
+                android:drawablePadding="5dp"/>
 
         </android.support.design.widget.AppBarLayout>
 
@@ -53,19 +127,19 @@
             android:id="@+id/profileTabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
             app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabTextColor="@color/colorSmokeWhite"
             app:tabIndicatorColor="@color/colorOrange"
-            android:background="@color/colorPrimaryDark"/>
-        
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/colorSmokeWhite" />
+
         <android.support.v4.view.ViewPager
             android:id="@+id/profilePager"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </android.support.v4.view.ViewPager>
-        
+
     </LinearLayout>
 
 

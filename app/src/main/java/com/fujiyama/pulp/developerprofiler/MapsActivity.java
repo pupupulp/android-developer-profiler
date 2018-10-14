@@ -4,11 +4,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
-import com.fujiyama.pulp.developerprofiler.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,10 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Bundle userData = getIntent().getExtras();
-        User user = (User) userData.getSerializable("user");
-
-        this.userLocation = user.getLocation();
+        this.userLocation = getIntent().getStringExtra("location");
     }
 
 

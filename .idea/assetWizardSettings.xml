@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/pulp/Development/android/tools/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_account_circle_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/pulp/Development/android/tools/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_priority_high_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -34,11 +34,11 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="height" value="128" />
-                            <entry key="outputName" value="default_profile" />
+                            <entry key="height" value="12" />
+                            <entry key="outputName" value="divider" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$USER_HOME$" />
-                            <entry key="width" value="128" />
+                            <entry key="width" value="12" />
                           </map>
                         </option>
                       </PersistentState>

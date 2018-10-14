@@ -59,7 +59,8 @@
             android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
-            android:hint="Enter a Github user"/>
+            android:hint="Enter a Github user"
+            android:text="pupupulp"/>
 
         <Button
             android:id="@+id/viewProfileButton"
