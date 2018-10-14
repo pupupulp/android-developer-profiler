@@ -26,7 +26,7 @@
             android:textAlignment="center"
             android:textSize="50sp"
             android:textStyle="bold"
-            android:textColor="@color/colorGreyWhite"/>
+            android:textColor="@color/colorPrimaryText"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:text="@string/splashscreen_message"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:textColor="@color/colorDirtyWhite"/>
+            android:textColor="@color/colorSecondaryText"/>
 
     </LinearLayout>
 
@@ -58,7 +58,7 @@
             android:inputType="text"
             android:singleLine="true"
             android:textAlignment="center"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimaryDark"
             android:hint="Enter a Github user"
             android:text="pupupulp"/>
 
@@ -69,7 +69,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="@string/splashscreen_button"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/bordered_white_fill"/>
 
 

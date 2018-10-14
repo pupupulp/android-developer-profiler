@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:background="@color/colorSmokeWhite"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/profileBar"
@@ -36,8 +35,8 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:hint="Github User"
-                android:textColorHint="@color/colorGrey"
-                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorInactive"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -51,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Followers"
-                    android:textColor="@color/colorGreyWhite"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -60,10 +59,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:textColor="@color/colorGreyWhite"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="12sp"
                     android:hint="0"
-                    android:textColorHint="@color/colorGrey"/>
+                    android:textColorHint="@color/colorInactive"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,7 +71,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="|"
-                    android:textColor="@color/colorGreyWhite"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
 
@@ -81,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Following"
-                    android:textColor="@color/colorGreyWhite"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -90,10 +89,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center"
-                    android:textColor="@color/colorGreyWhite"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="12sp"
                     android:hint="0"
-                    android:textColorHint="@color/colorGrey"/>
+                    android:textColorHint="@color/colorInactive"/>
 
             </LinearLayout>
 
@@ -105,8 +104,8 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:hint="unknown bio"
-                android:textColorHint="@color/colorGrey"
-                android:textColor="@color/colorGreyWhite"
+                android:textColorHint="@color/colorInactive"
+                android:textColor="@color/colorSecondaryText"
                 android:textSize="14sp"
                 android:textStyle="italic"/>
 
@@ -117,8 +116,8 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:hint="unknown location"
-                android:textColorHint="@color/colorGrey"
-                android:textColor="@color/colorGreyWhite"
+                android:textColorHint="@color/colorInactive"
+                android:textColor="@color/colorSecondaryText"
                 android:textSize="12sp"
                 android:drawableLeft="@drawable/location_icon"
                 android:drawablePadding="5dp"/>
@@ -133,7 +132,7 @@
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/colorOrange"
             app:tabMode="scrollable"
-            app:tabTextColor="@color/colorSmokeWhite" />
+            app:tabTextColor="@color/colorPrimaryText" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/profilePager"
