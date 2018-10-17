@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 public class Repo implements Serializable {
 
@@ -29,9 +28,6 @@ public class Repo implements Serializable {
 
     @SerializedName("created_at")
     Timestamp createdAt;
-
-    @SerializedName("commits_url")
-    ArrayList<Commit> commits;
 
     @SerializedName("size")
     BigInteger size;
@@ -102,14 +98,6 @@ public class Repo implements Serializable {
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public ArrayList<Commit> getCommits() {
-        return commits;
-    }
-
-    public void setCommits(String commits) {
-//        this.commits = commits;
     }
 
     public BigInteger getSize() {

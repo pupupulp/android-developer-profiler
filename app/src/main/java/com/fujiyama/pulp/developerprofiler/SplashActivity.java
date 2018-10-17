@@ -3,11 +3,9 @@ package com.fujiyama.pulp.developerprofiler;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,10 +14,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
+import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
 import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +36,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     Button viewProfileButton;
 
     Animation uptodown, downtoup;
+
+    User user;
+    List<Repo> repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,21 +77,38 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
+
+                    user = response.body();
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Toast.makeText(SplashActivity.this, "Failed to get user.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            RepoService repoService = APIClient.createService(RepoService.class);
+            Call<List<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
+
+            callRepo.enqueue(new Callback<List<Repo>>() {
+                @Override
+                public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                     Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                    User user = response.body();
+                    repo = response.body();
                     Bundle userData = new Bundle();
 
                     userData.putSerializable("user", user);
+//                    userData.putSerializable("user", repo);
                     intent.putExtras(userData);
 
                     startActivity(intent);
                 }
 
                 @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, "Failed to get user.", Toast.LENGTH_SHORT).show();
+                public void onFailure(Call<List<Repo>> call, Throwable t) {
+                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
