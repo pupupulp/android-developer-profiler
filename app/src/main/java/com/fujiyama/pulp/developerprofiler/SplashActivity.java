@@ -32,19 +32,24 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final String TAG = SplashActivity.class.getSimpleName();
 
+    Bitmap originalBitmap;
+    Bitmap blurredBitmap;
+
     LinearLayout splashScreen, splashHeader, splashBody;
     EditText githubUserField;
     Button viewProfileButton;
 
     Animation uptodown, downtoup;
 
+    boolean retrievedUser = false, retrievedRepos = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.splash_background);
-        Bitmap blurredBitmap = ImageHandler.blur(this, originalBitmap);
+        originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.splash_background);
+        blurredBitmap = ImageHandler.blur(this, originalBitmap);
 
         splashScreen = (LinearLayout) findViewById(R.id.splashScreen);
         splashScreen.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
@@ -69,13 +74,16 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         if(githubUserField.getText().toString().equals("")) {
             Toast.makeText(SplashActivity.this, "Please input a user", Toast.LENGTH_SHORT).show();
         } else {
-            UserService userService = APIClient.createService(UserService.class);
-            Call<User> call = userService.getUser(githubUserField.getText().toString());
 
-            call.enqueue(new Callback<User>() {
+
+            UserService userService = APIClient.createService(UserService.class);
+            Call<User> callUser = userService.getUser(githubUserField.getText().toString());
+
+            callUser.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     DeveloperProfiler.setUser(response.body());
+                    retrievedUser = true;
                 }
 
                 @Override
@@ -90,17 +98,8 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             callRepo.enqueue(new Callback<ArrayList<Repo>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Repo>> call, Response<ArrayList<Repo>> response) {
-                    Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
-
-                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                     DeveloperProfiler.setRepo(response.body());
-                    Bundle userData = new Bundle();
-
-                    userData.putSerializable("user", DeveloperProfiler.getUser());
-                    userData.putSerializable("repo", DeveloperProfiler.getRepo());
-                    intent.putExtras(userData);
-
-                    startActivity(intent);
+                    retrievedRepos = true;
                 }
 
                 @Override
@@ -108,6 +107,18 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+
+            if(retrievedUser && retrievedRepos) {
+                Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
+                Bundle userData = new Bundle();
+
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                userData.putSerializable("user", DeveloperProfiler.getUser());
+                userData.putSerializable("repo", DeveloperProfiler.getRepo());
+                intent.putExtras(userData);
+
+                startActivity(intent);
+            }
         }
     }
 }
