@@ -2,11 +2,10 @@ package com.fujiyama.pulp.developerprofiler.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONArray;
-
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class Repo implements Serializable {
 
@@ -32,7 +31,7 @@ public class Repo implements Serializable {
     Timestamp createdAt;
 
     @SerializedName("commits_url")
-    BigInteger commits;
+    ArrayList<Commit> commits;
 
     @SerializedName("size")
     BigInteger size;
@@ -105,12 +104,12 @@ public class Repo implements Serializable {
         this.createdAt = createdAt;
     }
 
-    public BigInteger getCommits() {
+    public ArrayList<Commit> getCommits() {
         return commits;
     }
 
-    public void setCommits(JSONArray commits) {
-        this.commits = BigInteger.valueOf(commits.length());
+    public void setCommits(String commits) {
+//        this.commits = commits;
     }
 
     public BigInteger getSize() {
