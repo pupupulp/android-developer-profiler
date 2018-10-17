@@ -15,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.utilities.FragmentViewPagerAdapter;
 import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
@@ -24,10 +25,19 @@ import com.squareup.picasso.Picasso;
 public class ProfileActivity extends AppCompatActivity {
 
     private AppBarLayout profileBar;
+
     private TabLayout profileTabs;
     private ViewPager profilePager;
 
-    User user;
+    private ImageView profileImage;
+    private TextView profileName;
+    private TextView profileUser;
+    private TextView profileFollowers;
+    private TextView profileFollowing;
+    private TextView profileBio;
+    private TextView profileLocation;
+
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,32 +48,30 @@ public class ProfileActivity extends AppCompatActivity {
         profileTabs = (TabLayout) findViewById(R.id.profileTabs);
         profilePager = (ViewPager) findViewById(R.id.profilePager);
 
+        user = (User) DeveloperProfiler.getUser();
 
-        Bundle userData = getIntent().getExtras();
-        user = (User) userData.getSerializable("user");
-
-        ImageView profileImage = (ImageView) findViewById(R.id.profilePicture);
+        profileImage = (ImageView) findViewById(R.id.profilePicture);
         Picasso.get()
                 .load(user.getAvatarUrl().toString())
                 .transform(new ImageTransform())
                 .into(profileImage);
 
-        TextView profileName = (TextView) findViewById(R.id.profileName);
+        profileName = (TextView) findViewById(R.id.profileName);
         profileName.setText(user.getFullName());
 
-        TextView profileUser = (TextView) findViewById(R.id.profileUser);
+        profileUser = (TextView) findViewById(R.id.profileUser);
         profileUser.setText(user.getUsername());
 
-        TextView profileFollowers = (TextView) findViewById(R.id.profileFollowers);
+        profileFollowers = (TextView) findViewById(R.id.profileFollowers);
         profileFollowers.setText(user.getFollowers().toString());
 
-        TextView profileFollowing = (TextView) findViewById(R.id.profileFollowing);
+        profileFollowing = (TextView) findViewById(R.id.profileFollowing);
         profileFollowing.setText(user.getFollowing().toString());
 
-        TextView profileBio = (TextView) findViewById(R.id.profileBio);
+        profileBio = (TextView) findViewById(R.id.profileBio);
         profileBio.setText(user.getBio());
 
-        TextView profileLocation = (TextView) findViewById(R.id.profileLocation);
+        profileLocation = (TextView) findViewById(R.id.profileLocation);
         profileLocation.setText(user.getLocation());
 
         profileLocation.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(user.getLocation() != null) {
                     Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                    intent.putExtra("location", user.getLocation());
-
                     startActivity(intent);
                 }
             }

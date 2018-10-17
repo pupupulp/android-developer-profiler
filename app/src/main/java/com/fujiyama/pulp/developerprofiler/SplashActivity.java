@@ -32,16 +32,16 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final String TAG = SplashActivity.class.getSimpleName();
 
-    Bitmap originalBitmap;
-    Bitmap blurredBitmap;
+    private Bitmap originalBitmap;
+    private Bitmap blurredBitmap;
 
-    LinearLayout splashScreen, splashHeader, splashBody;
-    EditText githubUserField;
-    Button viewProfileButton;
+    private LinearLayout splashScreen, splashHeader, splashBody;
+    private EditText githubUserField;
+    private Button viewProfileButton;
 
-    Animation uptodown, downtoup;
+    private Animation uptodown, downtoup;
 
-    boolean retrievedUser = false, retrievedRepos = false;
+    private boolean retrievedUser = false, retrievedRepos = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         if(githubUserField.getText().toString().equals("")) {
             Toast.makeText(SplashActivity.this, "Please input a user", Toast.LENGTH_SHORT).show();
         } else {
-
 
             UserService userService = APIClient.createService(UserService.class);
             Call<User> callUser = userService.getUser(githubUserField.getText().toString());
@@ -110,13 +109,8 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
             if(retrievedUser && retrievedRepos) {
                 Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
-                Bundle userData = new Bundle();
 
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                userData.putSerializable("user", DeveloperProfiler.getUser());
-                userData.putSerializable("repo", DeveloperProfiler.getRepo());
-                intent.putExtras(userData);
-
                 startActivity(intent);
             }
         }

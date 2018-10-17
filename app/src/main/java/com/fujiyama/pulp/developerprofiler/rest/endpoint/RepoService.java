@@ -14,5 +14,5 @@ public interface RepoService {
     Call<ArrayList<Repo>> getRepos(@Path("user") String user);
 
     @GET("/repos/{user}/{repo}/commits")
-    Call<Commit> getRepoCommits(@Path("user") String user, @Path("repo") String repo);
+    Call<ArrayList<Commit>> getRepoCommits(@Path("user") String user, @Path("repo") String repo);
 }
