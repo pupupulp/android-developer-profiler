@@ -1,2 +1,3 @@
 
-vsquid:S1450"SRemove the "mMap" field and declare it as a local variable in the relevant methods.(—­ƒÌÿÿÿÿÿ8‡èª—ç,
+vsquid:S1450"ZRemove the "mapFragment" field and declare it as a local variable in the relevant methods.(Åýùô8Ú¥ÝŽè,
+nsquid:S1450"RRemove the "map" field and declare it as a local variable in the relevant methods.(ùŒ±¢8Ú¥ÝŽè,

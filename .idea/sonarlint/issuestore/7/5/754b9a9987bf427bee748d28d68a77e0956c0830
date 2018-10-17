@@ -1,0 +1,5 @@
+
+Lsquid:S1068"+Remove this unused "commits" private field.(©˜øÿÿÿÿ8Ÿ—ßè,
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ëˆ«›üÿÿÿÿ8Ÿ—ßè,
+squid:S1319"oThe type of the "repo" object should be an interface such as "List" rather than the implementation "ArrayList".(™ü¬µÿÿÿÿÿ8Ÿ—ßè,
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(ñõîÙşÿÿÿÿ8Ÿ—ßè,

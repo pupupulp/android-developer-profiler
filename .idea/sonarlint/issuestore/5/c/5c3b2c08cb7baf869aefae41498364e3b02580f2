@@ -1,7 +1,14 @@
 
-Fsquid:S1659"*Declare "splashHeader" on a separate line.(–«ã8‚·†ç,
-Dsquid:S1659"(Declare "splashBody" on a separate line.(–«ã8‚·†ç,
-Bsquid:S1659"&Declare "downtoup" on a separate line.(ÒéÑ´8‚·†ç,
-Csquid:S1068"'Remove this unused "TAG" private field.(Êš²µ8‚·†ç,
-osquid:UselessImportCheck"ARemove this unused import 'android.graphics.drawable.Animatable'.(‘×ùÿÿÿÿ8‚·†ç,
-[squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8‚·†ç,
+}squid:S1450"\Remove the "blurredBitmap" field and declare it as a local variable in the relevant methods.(¹½øŸúÿÿÿÿ8Öößè,
+~squid:S1450"]Remove the "originalBitmap" field and declare it as a local variable in the relevant methods.(ù¿¨éıÿÿÿÿ8Öößè,
+squid:S1450"`Remove the "viewProfileButton" field and declare it as a local variable in the relevant methods.(ÿİû°ùÿÿÿÿ8Öößè,
+Ksquid:S1659"*Declare "splashHeader" on a separate line.(ÄşÔ‰ûÿÿÿÿ8Öößè,
+ssquid:S1450"WRemove the "uptodown" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8Öößè,
+zsquid:S1450"YRemove the "splashBody" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,
+Isquid:S1659"(Declare "splashBody" on a separate line.(ÄşÔ‰ûÿÿÿÿ8Öößè,
+Csquid:S1068"'Remove this unused "TAG" private field.(Êš²µ8Öößè,
+|squid:S1450"[Remove the "splashHeader" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,
+Bsquid:S1659"&Declare "downtoup" on a separate line.(¼ŞÉ¢8Öößè,
+ssquid:S1450"WRemove the "downtoup" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8Öößè,
+Msquid:S1659",Declare "retrievedRepos" on a separate line.(£¸÷ùÿÿÿÿ8Öößè,
+|squid:S1450"[Remove the "splashScreen" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,

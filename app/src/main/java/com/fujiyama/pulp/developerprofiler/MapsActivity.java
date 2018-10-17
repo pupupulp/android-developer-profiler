@@ -26,7 +26,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String TAG = MapsActivity.class.getSimpleName();
     private SupportMapFragment mapFragment;
     private GoogleMap map;
-    private String userLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +34,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        userLocation = DeveloperProfiler.getUser().getLocation();
     }
 
     @Override
@@ -54,9 +51,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e(TAG, "Can't find style. Error: " + e);
         }
 
-        LatLng location = getLatLongFromLocation(this, userLocation);
+        LatLng location = getLatLongFromLocation(this, DeveloperProfiler.getUser().getLocation());
 
-        map.addMarker(new MarkerOptions().position(location).title("Marker in " + userLocation));
+        map.addMarker(new MarkerOptions().position(location).title("Marker in " + DeveloperProfiler.getUser().getLocation()));
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
 
