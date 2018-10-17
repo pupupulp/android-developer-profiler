@@ -1,0 +1,7 @@
+
+Fsquid:S1659"*Declare "splashHeader" on a separate line.(–«ã8‚·†ç,
+Dsquid:S1659"(Declare "splashBody" on a separate line.(–«ã8‚·†ç,
+Bsquid:S1659"&Declare "downtoup" on a separate line.(ÒéÑ´8‚·†ç,
+Csquid:S1068"'Remove this unused "TAG" private field.(Êš²µ8‚·†ç,
+osquid:UselessImportCheck"ARemove this unused import 'android.graphics.drawable.Animatable'.(‘×ùÿÿÿÿ8‚·†ç,
+[squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8‚·†ç,

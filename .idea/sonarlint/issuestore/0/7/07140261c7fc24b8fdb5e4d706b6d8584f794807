@@ -1,4 +1,11 @@
 
-]squid:S1858"F"getAvatarUrl" returns a string, there's no need to call "toString()".(·‚Ì²
-€squid:UselessImportCheck	"WRemove this unused import 'com.fujiyama.pulp.developerprofiler.utilities.ImageHandler'.(¥´‡—ýÿÿÿÿ
-Vsquid:UselessImportCheck"-Remove this unused import 'org.w3c.dom.Text'.(¶Äè‹þÿÿÿÿ
+{squid:S1450"ZRemove the "profileTabs" field and declare it as a local variable in the relevant methods.(Èÿ”ëÿÿÿÿÿ8Ãð–—ç,
+Gsquid:S1905",Remove this unnecessary cast to "TabLayout".(»ê§:8Ãð–—ç,
+wsquid:S1450"[Remove the "profilePager" field and declare it as a local variable in the relevant methods.(¤Êªë8Ãð–—ç,
+Jsquid:S1905"/Remove this unnecessary cast to "AppBarLayout".(Ù‚ç8Ãð–—ç,
+Hsquid:S1905",Remove this unnecessary cast to "ViewPager".(íê‚§8Ãð–—ç,
+Ksquid:S1905"/Remove this unnecessary cast to "AppBarLayout".(´ñ–ÿ8Ãð–—ç,
+bsquid:S1858"F"getAvatarUrl" returns a string, there's no need to call "toString()".(·‚Ì²8Ãð–—ç,
+dsquid:HiddenFieldCheck">Rename "profileBar" which hides the field declared at line 26.(Ù‚ç8Ãð–—ç,
+zsquid:S1450"YRemove the "profileBar" field and declare it as a local variable in the relevant methods.(Ì¥’íüÿÿÿÿ8Ãð–—ç,
+Osquid:S1068".Remove this unused "profileBar" private field.(Ì¥’íüÿÿÿÿ8Ãð–—ç,
