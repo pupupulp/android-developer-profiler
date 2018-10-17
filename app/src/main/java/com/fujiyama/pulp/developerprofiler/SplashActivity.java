@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
@@ -21,7 +22,7 @@ import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
 import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,9 +37,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     Button viewProfileButton;
 
     Animation uptodown, downtoup;
-
-    User user;
-    List<Repo> repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +75,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
-
-                    user = response.body();
+                    DeveloperProfiler.setUser(response.body());
                 }
 
                 @Override
@@ -88,26 +85,26 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             });
 
             RepoService repoService = APIClient.createService(RepoService.class);
-            Call<List<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
+            Call<ArrayList<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
 
-            callRepo.enqueue(new Callback<List<Repo>>() {
+            callRepo.enqueue(new Callback<ArrayList<Repo>>() {
                 @Override
-                public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+                public void onResponse(Call<ArrayList<Repo>> call, Response<ArrayList<Repo>> response) {
                     Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                    repo = response.body();
+                    DeveloperProfiler.setRepo(response.body());
                     Bundle userData = new Bundle();
 
-                    userData.putSerializable("user", user);
-//                    userData.putSerializable("user", repo);
+                    userData.putSerializable("user", DeveloperProfiler.getUser());
+                    userData.putSerializable("repo", DeveloperProfiler.getRepo());
                     intent.putExtras(userData);
 
                     startActivity(intent);
                 }
 
                 @Override
-                public void onFailure(Call<List<Repo>> call, Throwable t) {
+                public void onFailure(Call<ArrayList<Repo>> call, Throwable t) {
                     Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
