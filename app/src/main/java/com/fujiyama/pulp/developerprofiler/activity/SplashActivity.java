@@ -92,7 +92,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     if(response.isSuccessful()) {
                         DeveloperProfiler.setUser(response.body());
                         retrievedUser = true;
-                        startProfile();
                     } else {
                         Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
                     }
