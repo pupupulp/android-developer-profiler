@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
-import com.fujiyama.pulp.developerprofiler.model.Commit;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
@@ -89,14 +88,20 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             callUser.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
-                    DeveloperProfiler.setUser(response.body());
-                    retrievedUser = true;
-                    startProfile();
+                    if(response.isSuccessful()) {
+                        DeveloperProfiler.setUser(response.body());
+                        retrievedUser = true;
+                        startProfile();
+                    } else {
+                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                    }
+
+                    progress.dismiss();
                 }
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-
+                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -106,44 +111,20 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             callRepo.enqueue(new Callback<ArrayList<Repo>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Repo>> call, Response<ArrayList<Repo>> response) {
-                    DeveloperProfiler.setRepos(response.body());
-
-                    for (Repo repo : response.body()) {
-                        class CommitRetrievalThread extends Thread {
-                            Repo repo;
-
-                            CommitRetrievalThread(Repo repo) {
-                                this.repo = repo;
-                            }
-
-                            public void run() {
-                                RepoService repoService = APIClient.createService(RepoService.class);
-                                Call<ArrayList<Commit>> callCommits = repoService.getRepoCommits(DeveloperProfiler.getUser().getUsername(), repo.getName());
-
-                                callCommits.enqueue(new Callback<ArrayList<Commit>>() {
-                                    @Override
-                                    public void onResponse(Call<ArrayList<Commit>> call, Response<ArrayList<Commit>> response) {
-                                        repo.setCommits(response.body());
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<ArrayList<Commit>> call, Throwable t) {
-
-                                    }
-                                });
-                            }
-                        }
-
-                        new CommitRetrievalThread(repo).start();
+                    if(response.isSuccessful()) {
+                        DeveloperProfiler.setRepos(response.body());
+                        retrievedRepos = true;
+                        startProfile();
+                    } else {
+                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
                     }
 
-                    retrievedRepos = true;
-                    startProfile();
+                    progress.dismiss();
                 }
 
                 @Override
                 public void onFailure(Call<ArrayList<Repo>> call, Throwable t) {
-
+                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -151,7 +132,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private synchronized void startProfile() {
         if(retrievedUser && retrievedRepos) {
-            progress.dismiss();
             Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
             startActivity(intent);
         }

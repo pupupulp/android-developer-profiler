@@ -18,7 +18,8 @@ public class AuthInterceptor implements Interceptor {
         Request request = chain.request();
 
         Request.Builder builder = request.newBuilder()
-                .addHeader("Authorization", authToken);
+                .addHeader("Authorization", authToken)
+                .addHeader("User-Agent", "Gitpro");
 
         Request authenticatedRequest = builder.build();
 

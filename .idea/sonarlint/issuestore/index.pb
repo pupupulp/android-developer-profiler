@@ -57,3 +57,5 @@ Sapp/src/main/java/com/fujiyama/pulp/developerprofiler/config/DeveloperProfiler.
 Qapp/src/main/java/com/fujiyama/pulp/developerprofiler/model/CommitterContent.java,9/d/9d4ece16aef7d2c357768d3b216dacaba3e5c063
 ~
 Napp/src/main/java/com/fujiyama/pulp/developerprofiler/model/CommitContent.java,e/2/e21f27ce1eb3b50573145e3c16f968d181a7f454
+
+Oapp/src/main/java/com/fujiyama/pulp/developerprofiler/rest/AuthInterceptor.java,a/e/ae5c0c388c16d88bbe3192d9b49315359864a2cf
