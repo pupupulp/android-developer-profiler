@@ -1,5 +1,6 @@
 package com.fujiyama.pulp.developerprofiler;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
+import com.fujiyama.pulp.developerprofiler.model.Commit;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
@@ -41,7 +43,8 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private Animation uptodown, downtoup;
 
-    private boolean retrievedUser = false, retrievedRepos = false;
+    private ProgressDialog progress;
+    private boolean retrievedUser = false, retrievedRepos = false, retrievedCommits = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,11 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(SplashActivity.this, "Please input a user", Toast.LENGTH_SHORT).show();
         } else {
 
+            progress = new ProgressDialog(SplashActivity.this);
+            progress.setMessage("Retrieving user details...");
+            progress.setCancelable(false);
+            progress.show();
+
             UserService userService = APIClient.createService(UserService.class);
             Call<User> callUser = userService.getUser(githubUserField.getText().toString());
 
@@ -83,11 +91,12 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 public void onResponse(Call<User> call, Response<User> response) {
                     DeveloperProfiler.setUser(response.body());
                     retrievedUser = true;
+                    startProfile();
                 }
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, "Failed to get user.", Toast.LENGTH_SHORT).show();
+
                 }
             });
 
@@ -97,22 +106,54 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             callRepo.enqueue(new Callback<ArrayList<Repo>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Repo>> call, Response<ArrayList<Repo>> response) {
-                    DeveloperProfiler.setRepo(response.body());
+                    DeveloperProfiler.setRepos(response.body());
+
+                    for (Repo repo : response.body()) {
+                        class CommitRetrievalThread extends Thread {
+                            Repo repo;
+
+                            CommitRetrievalThread(Repo repo) {
+                                this.repo = repo;
+                            }
+
+                            public void run() {
+                                RepoService repoService = APIClient.createService(RepoService.class);
+                                Call<ArrayList<Commit>> callCommits = repoService.getRepoCommits(DeveloperProfiler.getUser().getUsername(), repo.getName());
+
+                                callCommits.enqueue(new Callback<ArrayList<Commit>>() {
+                                    @Override
+                                    public void onResponse(Call<ArrayList<Commit>> call, Response<ArrayList<Commit>> response) {
+                                        repo.setCommits(response.body());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ArrayList<Commit>> call, Throwable t) {
+
+                                    }
+                                });
+                            }
+                        }
+
+                        new CommitRetrievalThread(repo).start();
+                    }
+
                     retrievedRepos = true;
+                    startProfile();
                 }
 
                 @Override
                 public void onFailure(Call<ArrayList<Repo>> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
                 }
             });
+        }
+    }
 
-            if(retrievedUser && retrievedRepos) {
-                Toast.makeText(SplashActivity.this, "Successfully retrieved user.", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(intent);
-            }
+    private synchronized void startProfile() {
+        if(retrievedUser && retrievedRepos) {
+            progress.dismiss();
+            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(intent);
         }
     }
 }

@@ -51,6 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e(TAG, "Can't find style. Error: " + e);
         }
 
+
         LatLng location = getLatLongFromLocation(this, DeveloperProfiler.getUser().getLocation());
 
         map.addMarker(new MarkerOptions().position(location).title("Marker in " + DeveloperProfiler.getUser().getLocation()));

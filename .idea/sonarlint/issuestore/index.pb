@@ -53,3 +53,7 @@ w
 Gapp/src/main/java/com/fujiyama/pulp/developerprofiler/model/Commit.java,f/0/f002f42ac6e9df6bd7eb7198ad350c036a0e47a5
 É
 Sapp/src/main/java/com/fujiyama/pulp/developerprofiler/config/DeveloperProfiler.java,7/5/754b9a9987bf427bee748d28d68a77e0956c0830
+Å
+Qapp/src/main/java/com/fujiyama/pulp/developerprofiler/model/CommitterContent.java,9/d/9d4ece16aef7d2c357768d3b216dacaba3e5c063
+~
+Napp/src/main/java/com/fujiyama/pulp/developerprofiler/model/CommitContent.java,e/2/e21f27ce1eb3b50573145e3c16f968d181a7f454

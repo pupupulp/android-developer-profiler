@@ -2,7 +2,6 @@ package com.fujiyama.pulp.developerprofiler.config;
 
 import android.app.Application;
 
-import com.fujiyama.pulp.developerprofiler.model.Commit;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 
@@ -13,7 +12,6 @@ public class DeveloperProfiler extends Application {
     private static DeveloperProfiler instance;
     private static User user;
     private static ArrayList<Repo> repos;
-    private static ArrayList<Commit> commits;
 
     public void onCreate() {
         super.onCreate();
@@ -32,11 +30,11 @@ public class DeveloperProfiler extends Application {
         DeveloperProfiler.user = user;
     }
 
-    public static ArrayList<Repo> getRepo() {
+    public static ArrayList<Repo> getRepos() {
         return repos;
     }
 
-    public static void setRepo(ArrayList<Repo> repo) {
-        DeveloperProfiler.repos = repo;
+    public static void setRepos(ArrayList<Repo> repos) {
+        DeveloperProfiler.repos = repos;
     }
 }

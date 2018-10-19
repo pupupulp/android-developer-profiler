@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class Repo implements Serializable {
 
@@ -43,6 +44,8 @@ public class Repo implements Serializable {
 
     @SerializedName("watchers_count")
     BigInteger watchers;
+
+    ArrayList<Commit> commits;
 
     public BigInteger getId() {
         return id;
@@ -138,5 +141,13 @@ public class Repo implements Serializable {
 
     public void setWatchers(BigInteger watchers) {
         this.watchers = watchers;
+    }
+
+    public ArrayList<Commit> getCommits() {
+        return commits;
+    }
+
+    public void setCommits(ArrayList<Commit> commits) {
+        this.commits = commits;
     }
 }

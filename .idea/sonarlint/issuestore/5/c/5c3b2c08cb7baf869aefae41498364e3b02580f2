@@ -1,14 +1,26 @@
 
-}squid:S1450"\Remove the "blurredBitmap" field and declare it as a local variable in the relevant methods.(¹½øŸúÿÿÿÿ8Öößè,
-~squid:S1450"]Remove the "originalBitmap" field and declare it as a local variable in the relevant methods.(ù¿¨éıÿÿÿÿ8Öößè,
-squid:S1450"`Remove the "viewProfileButton" field and declare it as a local variable in the relevant methods.(ÿİû°ùÿÿÿÿ8Öößè,
-Ksquid:S1659"*Declare "splashHeader" on a separate line.(ÄşÔ‰ûÿÿÿÿ8Öößè,
-ssquid:S1450"WRemove the "uptodown" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8Öößè,
-zsquid:S1450"YRemove the "splashBody" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,
-Isquid:S1659"(Declare "splashBody" on a separate line.(ÄşÔ‰ûÿÿÿÿ8Öößè,
-Csquid:S1068"'Remove this unused "TAG" private field.(Êš²µ8Öößè,
-|squid:S1450"[Remove the "splashHeader" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,
-Bsquid:S1659"&Declare "downtoup" on a separate line.(¼ŞÉ¢8Öößè,
-ssquid:S1450"WRemove the "downtoup" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8Öößè,
-Msquid:S1659",Declare "retrievedRepos" on a separate line.(£¸÷ùÿÿÿÿ8Öößè,
-|squid:S1450"[Remove the "splashScreen" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8Öößè,
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™›ó8­¹·è,
+Hsquid:S1659",Declare "retrievedRepos" on a separate line.(ìÛ·8­¹·è,
+Isquid:S1659"(Declare "splashBody" on a separate line.(ÄşÔ‰ûÿÿÿÿ8­¹·è,
+ssquid:S1450"WRemove the "downtoup" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8­¹·è,
+|squid:S1450"[Remove the "splashScreen" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8­¹·è,
+ssquid:S1450"WRemove the "uptodown" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8­¹·è,
+squid:S1450"`Remove the "viewProfileButton" field and declare it as a local variable in the relevant methods.(ÿİû°ùÿÿÿÿ8­¹·è,
+}squid:S1450"\Remove the "blurredBitmap" field and declare it as a local variable in the relevant methods.(¹½øŸúÿÿÿÿ8­¹·è,
+Ksquid:S1659"*Declare "splashHeader" on a separate line.(ÄşÔ‰ûÿÿÿÿ8­¹·è,
+~squid:S1450"]Remove the "originalBitmap" field and declare it as a local variable in the relevant methods.(ù¿¨éıÿÿÿÿ8­¹·è,
+Bsquid:S1659"&Declare "downtoup" on a separate line.(¼ŞÉ¢8­¹·è,
+Jsquid:S1659".Declare "retrievedCommits" on a separate line.(ìÛ·8­¹·è,
+Psquid:S1068"4Remove this unused "retrievedCommits" private field.(ìÛ·8­¹·è,
+|squid:S1450"[Remove the "splashHeader" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8­¹·è,
+Csquid:S1068"'Remove this unused "TAG" private field.(Êš²µ8­¹·è,
+zsquid:S1450"YRemove the "splashBody" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8­¹·è,
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´ÜçÒ8­¹·è,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(å¢ùÈùÿÿÿÿ8»Ğ·è,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÊôÕ˜8»Ğ·è,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(áíüÈùÿÿÿÿ8»Ğ·è,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óŞ íşÿÿÿÿ8»Ğ·è,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¸Ñˆ•8»Ğ·è,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ï¶”Š8»Ğ·è,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8»Ğ·è,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(À°©ñ8»Ğ·è,
