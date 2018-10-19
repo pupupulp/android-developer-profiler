@@ -1,4 +1,4 @@
-package com.fujiyama.pulp.developerprofiler;
+package com.fujiyama.pulp.developerprofiler.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,17 +9,21 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
+import com.fujiyama.pulp.developerprofiler.fragment.GistsFragment;
+import com.fujiyama.pulp.developerprofiler.fragment.ReposFragment;
 import com.fujiyama.pulp.developerprofiler.model.User;
-import com.fujiyama.pulp.developerprofiler.utilities.FragmentViewPagerAdapter;
-import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
-import com.fujiyama.pulp.developerprofiler.utilities.ImageTransform;
+import com.fujiyama.pulp.developerprofiler.utility.FragmentViewPagerAdapter;
+import com.fujiyama.pulp.developerprofiler.utility.ImageHandler;
+import com.fujiyama.pulp.developerprofiler.utility.ImageTransform;
 import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -90,6 +94,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         profilePager.setAdapter(adapter);
         profileTabs.setupWithViewPager(profilePager);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.fujiyama.pulp.developerprofiler;
+package com.fujiyama.pulp.developerprofiler.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,13 +15,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
-import com.fujiyama.pulp.developerprofiler.utilities.ImageHandler;
+import com.fujiyama.pulp.developerprofiler.utility.ImageHandler;
 
 import java.util.ArrayList;
 

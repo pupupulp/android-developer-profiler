@@ -1,4 +1,4 @@
-package com.fujiyama.pulp.developerprofiler;
+package com.fujiyama.pulp.developerprofiler.activity;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
+import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

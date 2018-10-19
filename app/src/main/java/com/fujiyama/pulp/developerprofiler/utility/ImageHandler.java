@@ -1,4 +1,4 @@
-package com.fujiyama.pulp.developerprofiler.utilities;
+package com.fujiyama.pulp.developerprofiler.utility;
 
 import android.content.Context;
 import android.graphics.Bitmap;
