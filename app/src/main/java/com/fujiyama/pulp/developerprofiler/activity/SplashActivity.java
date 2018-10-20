@@ -17,9 +17,11 @@ import android.widget.Toast;
 
 import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
+import com.fujiyama.pulp.developerprofiler.model.Gist;
 import com.fujiyama.pulp.developerprofiler.model.Repo;
 import com.fujiyama.pulp.developerprofiler.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
+import com.fujiyama.pulp.developerprofiler.rest.endpoint.GistService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
 import com.fujiyama.pulp.developerprofiler.utility.ImageHandler;
@@ -44,7 +46,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private Animation uptodown, downtoup;
 
     private ProgressDialog progress;
-    private boolean retrievedUser = false, retrievedRepos = false, retrievedCommits = false;
+    private boolean retrievedUser = false, retrievedRepos = false, retrievedGists = false, retrievedCommits = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +116,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     if(response.isSuccessful()) {
                         DeveloperProfiler.setRepos(response.body());
                         retrievedRepos = true;
-                        startProfile();
                     } else {
                         Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
                     }
@@ -127,11 +128,34 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
+
+            GistService gistService = APIClient.createService(GistService.class);
+            Call<ArrayList<Gist>> callGist = gistService.getGists(githubUserField.getText().toString());
+
+            callGist.enqueue(new Callback<ArrayList<Gist>>() {
+                @Override
+                public void onResponse(Call<ArrayList<Gist>> call, Response<ArrayList<Gist>> response) {
+                    if(response.isSuccessful()) {
+                        DeveloperProfiler.setGists(response.body());
+                        retrievedGists = true;
+                        startProfile();
+                    } else {
+                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                    }
+
+                    progress.dismiss();
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<Gist>> call, Throwable t) {
+                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 
     private synchronized void startProfile() {
-        if(retrievedUser && retrievedRepos) {
+        if(retrievedUser && retrievedRepos && retrievedGists) {
             Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
             startActivity(intent);
         }

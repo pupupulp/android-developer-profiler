@@ -10,5 +10,5 @@ import retrofit2.http.Path;
 
 public interface GistService {
     @GET("/users/{user}/gists")
-    Call<ArrayList<Gist>> getRepos(@Path("user") String user);
+    Call<ArrayList<Gist>> getGists(@Path("user") String user);
 }
