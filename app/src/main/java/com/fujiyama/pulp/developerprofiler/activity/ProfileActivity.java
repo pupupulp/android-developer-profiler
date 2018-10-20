@@ -1,5 +1,6 @@
 package com.fujiyama.pulp.developerprofiler.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -81,8 +82,15 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(user.getLocation() != null) {
+                    ProgressDialog progress = new ProgressDialog(ProfileActivity.this);
+                    progress.setMessage("Loading user location...");
+                    progress.setCancelable(false);
+                    progress.show();
+
                     Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
                     startActivity(intent);
+
+                    progress.dismiss();
                 }
             }
         });

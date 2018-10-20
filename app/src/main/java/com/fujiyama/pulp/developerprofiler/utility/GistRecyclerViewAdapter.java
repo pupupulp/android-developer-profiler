@@ -27,7 +27,7 @@ public class GistRecyclerViewAdapter extends RecyclerView.Adapter<GistRecyclerVi
     @Override
     public GistViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
-        view = LayoutInflater.from(context).inflate(R.layout.item_repo, viewGroup, false);
+        view = LayoutInflater.from(context).inflate(R.layout.item_gist, viewGroup, false);
 
         GistViewHolder viewHolder = new GistViewHolder(view);
 
