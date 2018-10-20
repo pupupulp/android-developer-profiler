@@ -27,9 +27,9 @@
                 android:textColor="@color/colorPrimaryText"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:hint="Repo Name"
+                android:hint="Gist Name"
                 android:textColorHint="@color/colorInactive"
-                android:id="@+id/repoName"/>
+                android:id="@+id/gistName"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -41,22 +41,22 @@
                 android:textSize="12sp"
                 android:hint="no description"
                 android:textColorHint="@color/colorInactive"
-                android:id="@+id/repoDescription"/>
+                android:id="@+id/gistDescription"/>
 
         </LinearLayout>
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="right">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
 
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:src="@drawable/download"-->
-                <!--android:tint="@color/colorAccent"/>-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/download"
+                android:tint="@color/colorAccent"/>
 
-        <!--</LinearLayout>-->
+        </LinearLayout>
 
     </LinearLayout>
 
