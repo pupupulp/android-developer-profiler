@@ -1,54 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
-    android:padding="10dp">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="@color/colorPrimaryText"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:hint="Repo Name"
-            android:textColorHint="@color/colorInactive"
-            android:id="@+id/repoName"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="@color/colorSecondaryText"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:hint="unknown description"
-            android:textColorHint="@color/colorInactive"
-            android:id="@+id/repoDescription"/>
-
-    </LinearLayout>
+    android:background="@color/colorPrimary"
+    android:paddingTop="10dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:gravity="right">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/colorPrimaryText"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:hint="Repo Name"
+                android:textColorHint="@color/colorInactive"
+                android:id="@+id/repoName"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorSecondaryText"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:hint="no description"
+                android:textColorHint="@color/colorInactive"
+                android:id="@+id/repoDescription"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/download"/>
+            android:gravity="right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/download"
+                android:tint="@color/colorAccent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"/>
 
 </LinearLayout>

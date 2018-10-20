@@ -28,9 +28,8 @@ public class ReposFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_repos, container, false);
 
         RepoRecyclerViewAdapter repoRecyclerViewAdapter = new RepoRecyclerViewAdapter(DeveloperProfiler.getInstance(), DeveloperProfiler.getRepos());
-
         recyclerView = (RecyclerView) view.findViewById(R.id.repoRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(DeveloperProfiler.getInstance()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(repoRecyclerViewAdapter);
 
         return view;

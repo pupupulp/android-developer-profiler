@@ -1,8 +1,6 @@
 
 \
 ,app/src/main/res/layout/activity_profile.xml,4/f/4feb8df09bb6546108e9d5489cd9c002981d116c
-z
-Japp/src/main/java/com/fujiyama/pulp/developerprofiler/ProfileActivity.java,0/7/07140261c7fc24b8fdb5e4d706b6d8584f794807
 R
 "app/src/main/res/raw/mapstyle.json,e/2/e25719d3b418cdc759e4bcbe7dca9b9787f2f737
 \
@@ -11,14 +9,6 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
-ç
-]app/src/main/java/com/fujiyama/pulp/developerprofiler/utilities/FragmentViewPagerAdapter.java,f/d/fdc9cfedb1a1d76b983e3247f7250e2c55a037e3
-x
-Happ/src/main/java/com/fujiyama/pulp/developerprofiler/GistsFragment.java,a/7/a7010ce220a147a5396ca1aeeeca1502cd8a7f79
-x
-Happ/src/main/java/com/fujiyama/pulp/developerprofiler/ReposFragment.java,0/9/099da42bf861e9dc1f187dc86c1362a384971b04
-y
-Iapp/src/main/java/com/fujiyama/pulp/developerprofiler/SplashActivity.java,5/c/5c3b2c08cb7baf869aefae41498364e3b02580f2
 S
 #app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
 Z
@@ -33,8 +23,6 @@ R
 "app/src/main/res/values/colors.xml,9/6/969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 Y
 )app/src/main/res/layout/activity_maps.xml,7/7/773a0511f0fbef0bddfce437cffca83a066ef58c
-w
-Gapp/src/main/java/com/fujiyama/pulp/developerprofiler/MapsActivity.java,2/d/2df92eff43a8d14315def9ce7e1bc69a6e3414ef
 Ä
 Papp/src/main/java/com/fujiyama/pulp/developerprofiler/rest/config/Constants.java,8/b/8b442fdd98a65950ca4cee00f1b61d9698c19cca
 u
@@ -45,10 +33,6 @@ Eapp/src/main/java/com/fujiyama/pulp/developerprofiler/model/Repo.java,e/c/ec50
 Tapp/src/main/java/com/fujiyama/pulp/developerprofiler/rest/endpoint/RepoService.java,a/d/adf110b882a23a789dbc1dad26434a3c45e0a19c
 Ñ
 Tapp/src/main/java/com/fujiyama/pulp/developerprofiler/rest/endpoint/UserService.java,8/9/892417e18f3e710cd26a713dd41b281669d038bd
-É
-Sapp/src/main/java/com/fujiyama/pulp/developerprofiler/utilities/ImageTransform.java,a/7/a7ebd65dbe53fd30b30d9a9c6e85c26f7ade27fc
-Å
-Qapp/src/main/java/com/fujiyama/pulp/developerprofiler/utilities/ImageHandler.java,7/c/7c7caf8be328ebe4d0bd16e66ea7e86e0de2cd27
 w
 Gapp/src/main/java/com/fujiyama/pulp/developerprofiler/model/Commit.java,f/0/f002f42ac6e9df6bd7eb7198ad350c036a0e47a5
 É
