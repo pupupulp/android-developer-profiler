@@ -1,0 +1,19 @@
+
+Qsquid:S1068".Remove this unused "profileBar" private field.(Ì¥’íüÿÿÿÿ8³ÚÐ“é,
+|squid:S1450"YRemove the "profileBar" field and declare it as a local variable in the relevant methods.(Ì¥’íüÿÿÿÿ8³ÚÐ“é,
+}squid:S1450!"ZRemove the "profileTabs" field and declare it as a local variable in the relevant methods.(Èÿ”ëÿÿÿÿÿ8³ÚÐ“é,
+ysquid:S1450""[Remove the "profilePager" field and declare it as a local variable in the relevant methods.(¤Êªë8³ÚÐ“é,
+ysquid:S1450$"[Remove the "profileImage" field and declare it as a local variable in the relevant methods.(·‘žü8³ÚÐ“é,
+}squid:S1450%"ZRemove the "profileName" field and declare it as a local variable in the relevant methods.(ˆÞ½ëþÿÿÿÿ8³ÚÐ“é,
+}squid:S1450&"ZRemove the "profileUser" field and declare it as a local variable in the relevant methods.(’ø„½úÿÿÿÿ8³ÚÐ“é,
+}squid:S1450'"_Remove the "profileFollowers" field and declare it as a local variable in the relevant methods.(›Òå³8³ÚÐ“é,
+‚squid:S1450("_Remove the "profileFollowing" field and declare it as a local variable in the relevant methods.(êìŸùÿÿÿÿ8³ÚÐ“é,
+|squid:S1450)"YRemove the "profileBio" field and declare it as a local variable in the relevant methods.(˜¯¡’ùÿÿÿÿ8³ÚÐ“é,
+squid:S1450*"^Remove the "profileLocation" field and declare it as a local variable in the relevant methods.(Žž• ûÿÿÿÿ8³ÚÐ“é,
+fsquid:HiddenFieldCheckn">Rename "profileBar" which hides the field declared at line 31.(Ù‚ç8³ÚÐ“é,
+Msquid:S19053"/Remove this unnecessary cast to "AppBarLayout".(´ñ–ÿ8³ÚÐ“é,
+Isquid:S19054",Remove this unnecessary cast to "TabLayout".(»ê§:8³ÚÐ“é,
+Jsquid:S19055",Remove this unnecessary cast to "ViewPager".(íê‚§8³ÚÐ“é,
+Esquid:S19057"'Remove this unnecessary cast to "User".(íÀ†Ø8³ÚÐ“é,
+Lsquid:S1905n"/Remove this unnecessary cast to "AppBarLayout".(Ù‚ç8³ÚÐ“é,
+dsquid:S1858;"F"getAvatarUrl" returns a string, there's no need to call "toString()".(·‚Ì²8³ÚÐ“é,

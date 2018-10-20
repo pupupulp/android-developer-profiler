@@ -36,7 +36,7 @@ public class GistRecyclerViewAdapter extends RecyclerView.Adapter<GistRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull GistViewHolder gistViewHolder, int i) {
-        gistViewHolder.gistName.setText(gists.get(i).getGistFileContent().getFilename());
+//        gistViewHolder.gistName.setText(gists.get(i).getGistFileContent().getFilename());
         gistViewHolder.gistDescription.setText(gists.get(i).getDescription());
     }
 

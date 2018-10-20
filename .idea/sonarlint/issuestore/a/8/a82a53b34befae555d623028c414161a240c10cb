@@ -1,0 +1,17 @@
+
+usquid:S1450."WRemove the "downtoup" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8—ãÎ“é,
+~squid:S1450*"[Remove the "splashScreen" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8—ãÎ“é,
+Msquid:S1659*"*Declare "splashHeader" on a separate line.(ÄşÔ‰ûÿÿÿÿ8—ãÎ“é,
+Osquid:S16591",Declare "retrievedRepos" on a separate line.(ã‘¯îúÿÿÿÿ8—ãÎ“é,
+Wsquid:S10681"4Remove this unused "retrievedCommits" private field.(ã‘¯îúÿÿÿÿ8—ãÎ“é,
+€squid:S1450'"]Remove the "originalBitmap" field and declare it as a local variable in the relevant methods.(ù¿¨éıÿÿÿÿ8—ãÎ“é,
+usquid:S1450."WRemove the "uptodown" field and declare it as a local variable in the relevant methods.(¼ŞÉ¢8—ãÎ“é,
+squid:S1450("\Remove the "blurredBitmap" field and declare it as a local variable in the relevant methods.(¹½øŸúÿÿÿÿ8—ãÎ“é,
+|squid:S1450*"YRemove the "splashBody" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8—ãÎ“é,
+Ksquid:S1659*"(Declare "splashBody" on a separate line.(ÄşÔ‰ûÿÿÿÿ8—ãÎ“é,
+Qsquid:S16591".Declare "retrievedCommits" on a separate line.(ã‘¯îúÿÿÿÿ8—ãÎ“é,
+ƒsquid:S1450,"`Remove the "viewProfileButton" field and declare it as a local variable in the relevant methods.(ÿİû°ùÿÿÿÿ8—ãÎ“é,
+Esquid:S1068%"'Remove this unused "TAG" private field.(Êš²µ8—ãÎ“é,
+~squid:S1450*"[Remove the "splashHeader" field and declare it as a local variable in the relevant methods.(ÄşÔ‰ûÿÿÿÿ8—ãÎ“é,
+Osquid:S16591",Declare "retrievedGists" on a separate line.(ã‘¯îúÿÿÿÿ8—ãÎ“é,
+Dsquid:S1659."&Declare "downtoup" on a separate line.(¼ŞÉ¢8—ãÎ“é,

@@ -1,0 +1,5 @@
+
+…squid:S1488 "bImmediately return this expression instead of assigning it to the temporary variable "viewHolder".(‚œä’øÿÿÿÿ8²ßÓ“é,
+Žsquid:S1319"pThe type of the "gists" object should be an interface such as "List" rather than the implementation "ArrayList".(¥±˜ç8²ßÓ“é,
+Jsquid:S10682",Remove this unused "gistName" private field.(Ÿˆî§8ÐœÕ“é,
+isquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(°Îµí8ÐœÕ“é,

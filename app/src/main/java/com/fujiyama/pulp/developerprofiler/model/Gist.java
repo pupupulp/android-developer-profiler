@@ -1,7 +1,12 @@
 package com.fujiyama.pulp.developerprofiler.model;
 
+import android.widget.Toast;
+
+import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -24,7 +29,7 @@ public class Gist implements Serializable {
     String description;
 
     @SerializedName("files")
-    String filesInfo;
+    JSONObject filesInfo;
 
     GistFileContent gistFileContent;
 
@@ -68,17 +73,20 @@ public class Gist implements Serializable {
         this.description = description;
     }
 
-    public String getFilesInfo() {
+    public JSONObject getFilesInfo() {
         return filesInfo;
     }
 
-    public void setFilesInfo(String filesInfo) {
-        int start = filesInfo.lastIndexOf("{");
-        int end = filesInfo.indexOf("}");
-        String trimmedFilesInfo = filesInfo.substring(start, end);
+    public void setFilesInfo(JSONObject filesInfo) {
+        String stringFilesInfo = filesInfo.toString();
+        int start = stringFilesInfo.lastIndexOf("{");
+        int end = stringFilesInfo.indexOf("}");
+        String trimmedFilesInfo = stringFilesInfo.substring(start, end);
+
+        Toast.makeText(DeveloperProfiler.getInstance(), trimmedFilesInfo, Toast.LENGTH_LONG).show();
 
         Gson gson = new Gson();
-        GistFileContent result = gson.fromJson(filesInfo, GistFileContent.class);
+        GistFileContent result = gson.fromJson(stringFilesInfo, GistFileContent.class);
 
         setGistFileContent(result);
 

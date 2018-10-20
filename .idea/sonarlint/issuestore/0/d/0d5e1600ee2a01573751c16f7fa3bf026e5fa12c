@@ -1,0 +1,3 @@
+
+Žsquid:S1319"pThe type of the "repos" object should be an interface such as "List" rather than the implementation "ArrayList".(„ÊÄÛ8ÐÞÕ“é,
+€squid:S1488 "bImmediately return this expression instead of assigning it to the temporary variable "viewHolder".(Ž¾†ô8ÐÞÕ“é,

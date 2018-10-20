@@ -1,4 +1,6 @@
 
-Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘¦„¨8¦¡Ô¶è,
 Œsquid:S1319"pThe type of the "repos" object should be an interface such as "List" rather than the implementation "ArrayList".(é©Î8¦¡Ô¶è,
+Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘¦„¨8¦¡Ô¶è,
 Wsquid:S2696"6Make the enclosing method "static" or remove this set.(ñõîÙşÿÿÿÿ8¦¡Ô¶è,
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(úÙÛâüÿÿÿÿ8æÉü‘é,
+‘squid:S1319"pThe type of the "gists" object should be an interface such as "List" rather than the implementation "ArrayList".(••€ôıÿÿÿÿ8æÉü‘é,
