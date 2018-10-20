@@ -35,9 +35,9 @@ public class GistRecyclerViewAdapter extends RecyclerView.Adapter<GistRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GistViewHolder repoViewHolder, int i) {
-        repoViewHolder.repoName.setText(gists.get(i).getFullName());
-        repoViewHolder.repoDescription.setText(gists.get(i).getDescription());
+    public void onBindViewHolder(@NonNull GistViewHolder gistViewHolder, int i) {
+        gistViewHolder.gistName.setText(gists.get(i).getGistFileContent().getFilename());
+        gistViewHolder.gistDescription.setText(gists.get(i).getDescription());
     }
 
     @Override
@@ -47,14 +47,14 @@ public class GistRecyclerViewAdapter extends RecyclerView.Adapter<GistRecyclerVi
 
     public static class GistViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView repoName;
-        private TextView repoDescription;
+        private TextView gistName;
+        private TextView gistDescription;
 
         public GistViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            repoName = (TextView) itemView.findViewById(R.id.repoName);
-            repoDescription = (TextView) itemView.findViewById(R.id.repoDescription);
+            gistName = (TextView) itemView.findViewById(R.id.gistName);
+            gistDescription = (TextView) itemView.findViewById(R.id.gistDescription);
         }
     }
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fujiyama.pulp.developerprofiler.R;
+import com.fujiyama.pulp.developerprofiler.utility.GistRecyclerViewAdapter;
 
 public class GistsFragment extends Fragment {
 
@@ -21,7 +22,7 @@ public class GistsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_gists, container, false);
 
-        RepoRecyclerViewAdapter repoRecyclerViewAdapter = new RepoRecyclerViewAdapter(DeveloperProfiler.getInstance(), DeveloperProfiler.getRepos());
+        GistRecyclerViewAdapter repoRecyclerViewAdapter = new GistRecyclerViewAdapter(DeveloperProfiler.getInstance(), DeveloperProfiler.getRepos());
         recyclerView = (RecyclerView) view.findViewById(R.id.repoRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(repoRecyclerViewAdapter);
