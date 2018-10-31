@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,20 +19,21 @@ import android.widget.Toast;
 
 import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
-import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
-import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
-import com.fujiyama.pulp.developerprofiler.rest.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
+import com.fujiyama.pulp.developerprofiler.rest.config.Constants;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.GistService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.UserService;
+import com.fujiyama.pulp.developerprofiler.rest.model.Commit;
+import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
+import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
+import com.fujiyama.pulp.developerprofiler.rest.model.User;
 import com.fujiyama.pulp.developerprofiler.utility.ImageHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -85,81 +88,62 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             progress.setCancelable(false);
             progress.show();
 
-            UserService userService = APIClient.createService(UserService.class);
-            Call<User> callUser = userService.getUser(githubUserField.getText().toString());
-
-            callUser.enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if(response.isSuccessful()) {
-                        DeveloperProfiler.setUser(response.body());
-                        retrievedUser = true;
-                        startProfile();
-                    } else {
-                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
-                    }
-
-                    progress.dismiss();
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-
-            RepoService repoService = APIClient.createService(RepoService.class);
-            Call<ArrayList<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
-
-            callRepo.enqueue(new Callback<ArrayList<Repo>>() {
-                @Override
-                public void onResponse(Call<ArrayList<Repo>> call, Response<ArrayList<Repo>> response) {
-                    if(response.isSuccessful()) {
-                        DeveloperProfiler.setRepos(response.body());
-                        retrievedRepos = true;
-                        startProfile();
-                    } else {
-                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
-                    }
-
-                    progress.dismiss();
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<Repo>> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-
-            GistService gistService = APIClient.createService(GistService.class);
-            Call<ArrayList<Gist>> callGist = gistService.getGists(githubUserField.getText().toString());
-
-            callGist.enqueue(new Callback<ArrayList<Gist>>() {
-                @Override
-                public void onResponse(Call<ArrayList<Gist>> call, Response<ArrayList<Gist>> response) {
-                    if(response.isSuccessful()) {
-                        DeveloperProfiler.setGists(response.body());
-                        retrievedGists = true;
-                        startProfile();
-                    } else {
-                        Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
-                    }
-
-                    progress.dismiss();
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<Gist>> call, Throwable t) {
-                    Toast.makeText(SplashActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
+            getUserDetails();
         }
     }
 
+    private void getUserDetails() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+
+                UserService userService = APIClient.createService(UserService.class, Constants.TOKEN);
+                Call<User> callUser = userService.getUser(githubUserField.getText().toString());
+
+                try {
+                    DeveloperProfiler.setUser(callUser.execute().body());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                RepoService repoService = APIClient.createService(RepoService.class);
+                Call<ArrayList<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
+
+                try {
+                    DeveloperProfiler.setRepos(callRepo.execute().body());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                for (Repo repo: DeveloperProfiler.getRepos()) {
+                    Call<ArrayList<Commit>> callRepoCommits = repoService.getRepoCommits(githubUserField.getText().toString(), repo.getName());
+                    try {
+
+                        repo.setCommits(callRepoCommits.execute().body());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                GistService gistService = APIClient.createService(GistService.class);
+                Call<ArrayList<Gist>> callGist = gistService.getGists(githubUserField.getText().toString());
+
+                try {
+                    DeveloperProfiler.setGists(callGist.execute().body());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                startProfile();
+            }
+        }, 1000);
+    }
+
     private synchronized void startProfile() {
-        if(retrievedUser && retrievedRepos && retrievedGists) {
-            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        startActivity(intent);
     }
 }
