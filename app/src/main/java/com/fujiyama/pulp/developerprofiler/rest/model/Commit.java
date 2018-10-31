@@ -23,7 +23,23 @@ public class Commit implements Serializable {
         this.url = url;
     }
 
-    private class CommitInfo implements Serializable {
+    public CommitInfo getCommitInfo() {
+        return commitInfo;
+    }
+
+    public void setCommitInfo(CommitInfo commitInfo) {
+        this.commitInfo = commitInfo;
+    }
+
+    public CommitterInfo getCommitterInfo() {
+        return committerInfo;
+    }
+
+    public void setCommitterInfo(CommitterInfo committerInfo) {
+        this.committerInfo = committerInfo;
+    }
+
+    public class CommitInfo implements Serializable {
         @SerializedName("message")
         String message;
 
@@ -36,7 +52,7 @@ public class Commit implements Serializable {
         }
     }
 
-    private class CommitterInfo implements Serializable {
+    public class CommitterInfo implements Serializable {
         @SerializedName("login")
         String username;
 

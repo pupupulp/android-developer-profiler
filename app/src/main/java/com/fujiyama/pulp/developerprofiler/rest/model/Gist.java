@@ -66,7 +66,15 @@ public class Gist implements Serializable {
         this.description = description;
     }
 
-    private class GistFileInfo implements Serializable {
+    public GistFileInfo getGistFileInfo() {
+        return gistFileInfo;
+    }
+
+    public void setGistFileInfo(GistFileInfo gistFileInfo) {
+        this.gistFileInfo = gistFileInfo;
+    }
+
+    public class GistFileInfo implements Serializable {
 
         @SerializedName("filename")
         String filename;
