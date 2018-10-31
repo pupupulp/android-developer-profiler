@@ -143,6 +143,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private synchronized void startProfile() {
+        progress.dismiss();
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         startActivity(intent);
     }
