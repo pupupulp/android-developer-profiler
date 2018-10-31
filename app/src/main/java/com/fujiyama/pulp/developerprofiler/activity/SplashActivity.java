@@ -97,11 +97,19 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                String username = githubUserField.getText().toString();
+
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
 
-                UserService userService = APIClient.createService(UserService.class, Constants.TOKEN);
-                Call<User> callUser = userService.getUser(githubUserField.getText().toString());
+                UserService userService;
+                if(username.equals("pupupulp")) {
+                    userService = APIClient.createService(UserService.class, Constants.AUTH_TOKEN);
+                } else {
+                    userService = APIClient.createService(UserService.class);
+                }
+
+                Call<User> callUser = userService.getUser(username);
 
                 try {
                     DeveloperProfiler.setUser(callUser.execute().body());
@@ -110,7 +118,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
                 RepoService repoService = APIClient.createService(RepoService.class);
-                Call<ArrayList<Repo>> callRepo = repoService.getRepos(githubUserField.getText().toString());
+                Call<ArrayList<Repo>> callRepo = repoService.getRepos(username);
 
                 try {
                     DeveloperProfiler.setRepos(callRepo.execute().body());
@@ -118,18 +126,20 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     e.printStackTrace();
                 }
 
-                for (Repo repo: DeveloperProfiler.getRepos()) {
-                    Call<ArrayList<Commit>> callRepoCommits = repoService.getRepoCommits(githubUserField.getText().toString(), repo.getName());
-                    try {
+                if(DeveloperProfiler.getRepos() != null) {
+                    for (Repo repo: DeveloperProfiler.getRepos()) {
+                        Call<ArrayList<Commit>> callRepoCommits = repoService.getRepoCommits(username, repo.getName());
+                        try {
 
-                        repo.setCommits(callRepoCommits.execute().body());
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                            repo.setCommits(callRepoCommits.execute().body());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
                 GistService gistService = APIClient.createService(GistService.class);
-                Call<ArrayList<Gist>> callGist = gistService.getGists(githubUserField.getText().toString());
+                Call<ArrayList<Gist>> callGist = gistService.getGists(username);
 
                 try {
                     DeveloperProfiler.setGists(callGist.execute().body());
@@ -144,7 +154,11 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private synchronized void startProfile() {
         progress.dismiss();
-        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-        startActivity(intent);
+        if(DeveloperProfiler.getUser() != null) {
+            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Failed to get user details.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
