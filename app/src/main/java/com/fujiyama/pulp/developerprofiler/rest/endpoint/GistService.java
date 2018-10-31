@@ -1,6 +1,6 @@
 package com.fujiyama.pulp.developerprofiler.rest.endpoint;
 
-import com.fujiyama.pulp.developerprofiler.model.Gist;
+import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
 
 import java.util.ArrayList;
 

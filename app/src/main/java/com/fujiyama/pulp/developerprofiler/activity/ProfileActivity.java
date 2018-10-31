@@ -20,7 +20,7 @@ import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
 import com.fujiyama.pulp.developerprofiler.fragment.GistsFragment;
 import com.fujiyama.pulp.developerprofiler.fragment.ReposFragment;
-import com.fujiyama.pulp.developerprofiler.model.User;
+import com.fujiyama.pulp.developerprofiler.rest.model.User;
 import com.fujiyama.pulp.developerprofiler.utility.FragmentViewPagerAdapter;
 import com.fujiyama.pulp.developerprofiler.utility.ImageHandler;
 import com.fujiyama.pulp.developerprofiler.utility.ImageTransform;

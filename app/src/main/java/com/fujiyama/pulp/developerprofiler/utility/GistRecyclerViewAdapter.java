@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fujiyama.pulp.developerprofiler.R;
-import com.fujiyama.pulp.developerprofiler.model.Gist;
+import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
 
 import java.util.ArrayList;
 
@@ -36,7 +36,7 @@ public class GistRecyclerViewAdapter extends RecyclerView.Adapter<GistRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull GistViewHolder gistViewHolder, int i) {
-//        gistViewHolder.gistName.setText(gists.get(i).getGistFileContent().getFilename());
+        gistViewHolder.gistName.setText(gists.get(i).getFilename());
         gistViewHolder.gistDescription.setText(gists.get(i).getDescription());
     }
 

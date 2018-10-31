@@ -2,9 +2,9 @@ package com.fujiyama.pulp.developerprofiler.config;
 
 import android.app.Application;
 
-import com.fujiyama.pulp.developerprofiler.model.Gist;
-import com.fujiyama.pulp.developerprofiler.model.Repo;
-import com.fujiyama.pulp.developerprofiler.model.User;
+import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
+import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
+import com.fujiyama.pulp.developerprofiler.rest.model.User;
 
 import java.util.ArrayList;
 

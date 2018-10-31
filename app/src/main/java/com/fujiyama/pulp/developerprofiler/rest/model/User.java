@@ -1,4 +1,4 @@
-package com.fujiyama.pulp.developerprofiler.model;
+package com.fujiyama.pulp.developerprofiler.rest.model;
 
 import com.google.gson.annotations.SerializedName;
 

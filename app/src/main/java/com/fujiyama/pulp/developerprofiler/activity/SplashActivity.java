@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 import com.fujiyama.pulp.developerprofiler.R;
 import com.fujiyama.pulp.developerprofiler.config.DeveloperProfiler;
-import com.fujiyama.pulp.developerprofiler.model.Gist;
-import com.fujiyama.pulp.developerprofiler.model.Repo;
-import com.fujiyama.pulp.developerprofiler.model.User;
+import com.fujiyama.pulp.developerprofiler.rest.model.Gist;
+import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
+import com.fujiyama.pulp.developerprofiler.rest.model.User;
 import com.fujiyama.pulp.developerprofiler.rest.APIClient;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.GistService;
 import com.fujiyama.pulp.developerprofiler.rest.endpoint.RepoService;
@@ -94,6 +94,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     if(response.isSuccessful()) {
                         DeveloperProfiler.setUser(response.body());
                         retrievedUser = true;
+                        startProfile();
                     } else {
                         Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
                     }
@@ -116,6 +117,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                     if(response.isSuccessful()) {
                         DeveloperProfiler.setRepos(response.body());
                         retrievedRepos = true;
+                        startProfile();
                     } else {
                         Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_LONG).show();
                     }

@@ -1,6 +1,6 @@
 package com.fujiyama.pulp.developerprofiler.rest.endpoint;
 
-import com.fujiyama.pulp.developerprofiler.model.User;
+import com.fujiyama.pulp.developerprofiler.rest.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

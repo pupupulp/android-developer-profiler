@@ -1,7 +1,7 @@
 package com.fujiyama.pulp.developerprofiler.rest.endpoint;
 
-import com.fujiyama.pulp.developerprofiler.model.Commit;
-import com.fujiyama.pulp.developerprofiler.model.Repo;
+import com.fujiyama.pulp.developerprofiler.rest.model.Commit;
+import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
 
 import java.util.ArrayList;
 

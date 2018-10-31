@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fujiyama.pulp.developerprofiler.R;
-import com.fujiyama.pulp.developerprofiler.model.Repo;
+import com.fujiyama.pulp.developerprofiler.rest.model.Repo;
 
 import java.util.ArrayList;
 
